@@ -22,7 +22,6 @@ Some concepts and topics we'll be using to complete this project are:
         <ul>
             <li>.toggle() method</li>
             <li>.checked</li>
-            <li>if statements</li>
         </ul>
     </li>
 </ol>
