@@ -1,0 +1,136 @@
+@import url("https://fonts.cdnfonts.com/css/gotham-rounded");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gotham Rounded", sans-serif;
+}
+
+body {
+    --accent: #4CA1DE;
+
+    --app-bg: #E9E9E9;
+    --chat-interface-bg: #ffffff;
+
+    --icon-color: #3E5058;
+    --icon-bg: #E9E9E9;
+
+    --text-color: #3E5058;
+
+    --toggle-bg: #E9E9E9;;
+    --toggle-color: #ffffff;
+
+    --send-cta-bg: var(--accent);
+    --send-cta-color: #ffffff;
+}
+body.dark {
+    --app-bg: #434F61;
+    --chat-interface-bg: #252D39;
+
+    --icon-color: #E9E0E0;
+    --icon-bg: #434F61;
+
+    --text-color: #E9E0E0;
+
+    --toggle-bg: #434F61;
+    --toggle-color: #E9E0E0;
+
+    --send-cta-bg: var(--accent);
+    --send-cta-color: #ffffff;
+}
+
+svg {
+    width: 25px;
+}
+.chat-app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--app-bg);
+    transition: background .5s;
+    .chat-interface {
+        margin-top: auto;
+        background-color: var(--chat-interface-bg);
+        padding: .5rem;
+        border-radius: .33rem;
+        transition: background .5s;
+        .utilities {
+            display: flex;
+            justify-content: flex-start;
+            ul {
+                background-color: var(--icon-bg);
+                display: flex;
+                border-radius: 25px;
+                padding: 0 .25rem;
+                margin-right: 1rem;
+                transition: background .5s;
+                &:last-child {
+                    margin-left: auto;
+                    margin-right: 0;
+                    padding: 0;
+                }
+                li {
+                    height: 35px;
+                    width: 35px;
+                    list-style: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    svg {
+                        height: 18px;
+                        fill: var(--icon-color);
+                        transition: fill .5s;
+                    }
+                    &.toggle-switch {
+                        width: auto;
+                        input {
+                            position: relative;
+                            -webkit-appearance: none;
+                            width: 50px;
+                            height: 30px;
+                            border-radius: 25px;
+                            background-color: var(--toggle-bg);
+                            transition: background .3s;
+                            &::after {
+                                position: absolute;
+                                content: '';
+                                top: 50%;
+                                left: 35%;
+                                transform: translate(-50%, -50%);
+                                height: 25px;
+                                width: 25px;
+                                background-color: var(--toggle-color);
+                                border-radius: 50%;
+                                transition: left .3s;
+                            }
+                            &:checked {
+                                background-color: var(--accent);
+                                &::after {
+                                    left: 65%;
+                                }
+                            }
+                        }
+                    }
+                    &.send-cta {
+                        width: 100px;
+                        border-radius: 25px;
+                        background-color: var(--accent);
+                        color: white;
+                        svg {
+                            margin-right: .5rem;
+                            fill: white;
+                        }
+                    }
+                }
+            }
+        }
+        input {
+            border: none;
+            padding: 1rem;
+            outline: none;
+            background-color: transparent;
+        }
+    }
+}
